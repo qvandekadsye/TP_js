@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <title>exemple1</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <div class="container">
+      <h1> Emploi du temps </h1>
+      <div id="agenda">
+      </div>
+    </div>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+  <script src="js/serveur1.js"></script>
+  <script>
+    avoirToutLeTableau("tableauZave",function(json){
+      var node = document.getElementById('agenda');
+      console.info(json);
+      for(var i = 0; i<json.donnees.tableau.length/4;i++)
+      {
+        var row = document.createElement("div");
+        row.className= "row";
+        for(var j =0; j<4 && (i*4+j<json.donnees.tableau.length) ; j++)
+        { console.info(i+'---'+j);
+          var cell = document.createElement("div")
+          cell.className="col-md-3"
+          var panel = document.createElement("div");
+          panel.className+= "panel"
+          panel.className+= "panel-default"
+          var title = document.createElement("div");
+          title.className+= "panel-heading"
+          var panelbody= document.createElement("div");
+          panelbody.className+= "panel-body"
+          titletext = document.createTextNode(json.donnees.tableau[i*4+j].resume)
+          lieutext = document.createTextNode(json.donnees.tableau[i*4+j].lieu)
+          debuttext = document.createTextNode(json.donnees.tableau[i*4+j].debut)
+          fintext = document.createTextNode(json.donnees.tableau[i*4+j].fin)
+          var debutDiv = document.createElement('div');
+          debutDiv.class+="debut";
+          var finDiv = document.createElement('div');
+          finDiv.class+="fin";
+          panelbody.appendChild(lieutext);
+          debutDiv.appendChild(debuttext);
+          finDiv.appendChild(fintext);
+          panelbody.appendChild(debutDiv);
+          panelbody.appendChild(finDiv);
+          panel.appendChild(title);
+          panel.appendChild(panelbody)
+          title.appendChild(titletext)
+          cell.appendChild(panel)
+          row.appendChild(cell);
+        }
+        node.appendChild(row);
+
+      }
+
+    });
+  </script>
+  </body>
+</html>

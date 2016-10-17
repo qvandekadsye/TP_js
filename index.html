@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>exemple1</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <div class="container">
+    <fieldset>
+      <div class="row">
+      <legend> Conversion d'un ICS vers Json</legend>
+    </div>
+      <form id="form_exemple" method="post" action="#">
+        <div class="row">
+          <label for="ics">Données ICS à convertir</label>
+      </div>
+      <div class="row">
+          <textarea id="ics" placeholder="données ics ici"></textarea>
+        </div>
+        <div class="row">
+          <label for="json">Résultat Json de la convertion</label>
+        </div>
+        <div class="row">
+          <textarea id="json" placeholder="coming soon"></textarea>
+        </div>
+        <div class="row">
+          <button id="b" class="btn" type="button">Convertir</button>
+      </div>
+      </form>
+    </fieldset>
+  </div>
+  <script src="js/exempleTER.js"></script>
+  <script>
+    var s = document.getElementById('ics')
+    document.getElementById('b').addEventListener('click',new Conversion());
+    </script>
+  </body>
+</html>
