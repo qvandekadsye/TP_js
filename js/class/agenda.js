@@ -31,10 +31,10 @@ class Agenda
       title.className+= "panel-heading"
       var panelbody= document.createElement("div");
       panelbody.className+= "panel-body"
-      titletext = document.createTextNode(day[line].resume)
-      lieutext = document.createTextNode(day[line].lieu)
-      debuttext = document.createTextNode(day[line].start)
-      fintext = document.createTextNode(day[line].end)
+      var titletext = document.createTextNode(day[line].resume)
+      var lieutext = document.createTextNode(day[line].lieu)
+      var debuttext = document.createTextNode(day[line].start)
+      var fintext = document.createTextNode(day[line].end)
       var debutDiv = document.createElement('div');
       debutDiv.class+="debut";
       var finDiv = document.createElement('div');
@@ -69,11 +69,12 @@ class Agenda
     {
       var row = document.createElement("div");
       row.className= "row";
-      var offset = generateday(this.schedule.mon,rowcpt,row);
-      offset = generateday(this.schedule.tue,rowcpt,row,offset);
-      offset = generateday(this.schedule.wen,rowcpt,row,offset,true);
-      offset = generateday(this.schedule.thu,rowcpt,row,offset);
+      var offset = this.generateday(this.schedule.mon,rowcpt,row);
+      offset = this.generateday(this.schedule.tue,rowcpt,row,offset);
+      offset = this.generateday(this.schedule.wen,rowcpt,row,offset,true);
+      offset = this.generateday(this.schedule.thu,rowcpt,row,offset);
       node.appendChild(row);
     }
+  }
 
 }

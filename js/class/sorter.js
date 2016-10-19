@@ -8,7 +8,7 @@ class Sorter
 
   sortsched()
   {
-    this.donnees.tableau.sort(function(a,b){
+    this.data.donnees.tableau.sort(function(a,b){
       var dateA = new Date(a.debut);
       var dateB = new Date(b.debut);
       return (dateA >dateB)?1:-1;
@@ -34,6 +34,7 @@ class Sorter
         agenda.schedule.thu.push(cren)
       }
     }
+    return agenda;
   }
-  return agenda;
+
 }
