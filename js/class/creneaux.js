@@ -1,9 +1,10 @@
-class crenaux{
-  constructor(description,start,end)
+class Crenaux{
+  constructor(resume,start,end,lieu)
   {
-    this.description = description;
-    this.start = start
-    this.end = end 
+    this.resume = resume;
+    this.start = start;
+    this.end = end ;
+    this.lieu = lieu;
   }
 }
 
